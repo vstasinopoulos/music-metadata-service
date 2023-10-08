@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    image: postgres:15.4-alpine
+    environment:
+      POSTGRES_USER: ice
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: music_metadata_service
+    ports:
+      - '5432:5432'
+    networks:
+      - music-metadata-network
+
+  music-metadata-service:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/music_metadata_service
+    ports:
+      - '8081:8081'
+    networks:
+      - music-metadata-network
+
+networks:
+  music-metadata-network:

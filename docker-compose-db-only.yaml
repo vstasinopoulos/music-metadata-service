@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    image: postgres:15.4-alpine
+    environment:
+      POSTGRES_USER: ice
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: music_metadata_service
+    ports:
+      - '5432:5432'

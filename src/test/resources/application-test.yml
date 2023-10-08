@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: music-metadata-service-test
+  datasource:
+    url: jdbc:tc:postgresql:15.4:///music_metadata_service
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE

@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: music-metadata-service
+  main:
+    banner-mode: "off"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/music_metadata_service
+    password: password
+    username: ice
+    hikari:
+      minimum-idle: 20
+      schema: public
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+springdoc:
+  api-docs.path: "/api-docs"
+  swagger-ui.path: "/swagger-ui.html"
+
+scheduler.cron: "0 0 0 * * ?"
